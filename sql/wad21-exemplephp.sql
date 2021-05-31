@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 31 mai 2021 à 09:41
+-- Généré le : lun. 31 mai 2021 à 17:08
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.1
 
@@ -40,10 +40,15 @@ CREATE TABLE `appartement` (
 --
 
 INSERT INTO `appartement` (`idAppartement`, `adresse`, `etat`) VALUES
-(1, 'Rue de la Banane', 'bon'),
-(2, 'Rue du Citron', 'superb'),
+(1, 'Rue de la Banane', 'superb'),
+(2, 'Rue du Citron', 'bon'),
 (3, 'Rue de la Poire', 'ok'),
-(4, 'Rue de la Tulipe', 'bon');
+(4, 'Rue du Citron', 'ok'),
+(5, 'Rue du Vin', 'bon'),
+(6, 'Rue de Stefanie', 'superb'),
+(7, 'Rue de Stefanie', 'ok'),
+(8, 'Rue de la Chose', 'bon'),
+(9, 'Rue de l\'Orange', 'ok');
 
 -- --------------------------------------------------------
 
@@ -54,19 +59,20 @@ INSERT INTO `appartement` (`idAppartement`, `adresse`, `etat`) VALUES
 CREATE TABLE `location` (
   `idLocation` int(11) NOT NULL,
   `idPersonne` int(11) NOT NULL,
-  `idAppartement` int(11) NOT NULL
+  `idAppartement` int(11) NOT NULL,
+  `dateDebut` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `location`
 --
 
-INSERT INTO `location` (`idLocation`, `idPersonne`, `idAppartement`) VALUES
-(1, 1, 1),
-(2, 1, 4),
-(3, 1, 3),
-(4, 2, 2),
-(5, 2, 4);
+INSERT INTO `location` (`idLocation`, `idPersonne`, `idAppartement`, `dateDebut`) VALUES
+(1, 1, 1, '2021-05-28'),
+(2, 1, 4, '2021-05-14'),
+(3, 1, 3, NULL),
+(4, 2, 2, NULL),
+(5, 2, 4, '2021-05-22');
 
 -- --------------------------------------------------------
 
@@ -120,7 +126,7 @@ ALTER TABLE `personne`
 -- AUTO_INCREMENT pour la table `appartement`
 --
 ALTER TABLE `appartement`
-  MODIFY `idAppartement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idAppartement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `location`
@@ -142,8 +148,8 @@ ALTER TABLE `personne`
 -- Contraintes pour la table `location`
 --
 ALTER TABLE `location`
-  ADD CONSTRAINT `location_ibfk_1` FOREIGN KEY (`idPersonne`) REFERENCES `personne` (`idPersonne`),
-  ADD CONSTRAINT `location_ibfk_2` FOREIGN KEY (`idAppartement`) REFERENCES `appartement` (`idAppartement`);
+  ADD CONSTRAINT `location_ibfk_1` FOREIGN KEY (`idPersonne`) REFERENCES `personne` (`idPersonne`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `location_ibfk_2` FOREIGN KEY (`idAppartement`) REFERENCES `appartement` (`idAppartement`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
