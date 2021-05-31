@@ -10,11 +10,11 @@
 
 <body>
     <form action="./exemple3-SelectFiltreParams.php" method="POST">
-        <select>
+        <select name="etat">
             <option value="nouveau">Appart nouveau</option>
             <option value="mauvais">Appart en mauvais état</option>
         </select>
-        Chercher<input type="submit">
+        <input type="submit" value="Chercher">
     </form>
 </body>
 

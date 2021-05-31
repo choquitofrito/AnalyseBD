@@ -12,10 +12,6 @@
     <h3>Select avec WHERE et params</h3>
     <?php
 
-
-    var_dump ($_POST);
-    die();
-
     // importation des paramètres de la BD
     include "./config/db.php";
 
@@ -33,6 +29,7 @@
     
     // préparer la requête, renvoie objet PDOStatement
     $stmt = $bdd->prepare($sql);
+    // lier le paramètre 
     $stmt->bindValue (":paramEtat", $_POST['etat']);
 
 
@@ -43,8 +40,6 @@
     $tableau = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // afficher le résultat
-
-    
     // même chose avec des boucles imbriqués.
     foreach ($tableau as $cleIndex => $unAppart){
         foreach ($unAppart as $cleAssoc => $valeur){
