@@ -2,16 +2,53 @@
 
 // importation des paramètres de la BD
 include "./config/db.php";
-	
-// création d'un objet pour la connexion ($pdo)	
-try {
-	$bdd = new PDO(DBDRIVER.':host='.DBHOST.';port='.DBPORT.
+
+
+// vérification au cas où il a un problème (try-catch)
+
+$bdd = new PDO(DBDRIVER.':host='.DBHOST.';port='.DBPORT.
 		';dbname='.DBNAME.';charset='
 		.DBCHARSET,DBUSER,DBPASS); 
-}
-catch (Exception $e){
-	die ('Erreur: '.$e->getMessage());
-}
+
+
+
+// créer une requête de selection (SELECT)
+$sql = "SELECT * FROM appartement";
+
+// préparer la requête, renvoie objet PDOStatement
+$stmt = $bdd->prepare ($sql);
+
+var_dump ($stmt);
+die();
+
+// lancer la requête
+
+
+// obtenir le résultat
+
+
+// afficher le résultat
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $nom = "Judy";
