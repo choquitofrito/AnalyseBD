@@ -16,21 +16,28 @@
     include "./config/db.php";
 
 
+
     // vérification au cas où il a un problème (try-catch)
     $bdd = new PDO(DBDRIVER . ':host=' . DBHOST . ';port=' . DBPORT .
         ';dbname=' . DBNAME . ';charset='
         . DBCHARSET, DBUSER, DBPASS);
 
-    // créer une requête de selection (SELECT)
-    $sql = "SELECT * FROM appartement WHERE etat= :paramEtat";
-    
+    // créer une requête d'insértion
+
+    // INSERT INTO appartement (idAppartement, adresse, etat) VALUES (NULL, , ); 
+
+    $sql = "INSERT INTO .......";
+
     // préparer la requête, renvoie objet PDOStatement
-    $etat = $_POST['etat'];
+    // capturer du POST 
+    // - l'adresse
+    // - l'etat
 
 
     $stmt = $bdd->prepare($sql);
-    // lier le paramètre 
-    $stmt->bindValue (":paramEtat", $etat);
+    // lier les paramètres 
+    $stmt->bindValue (":adresse", $adresse);
+    // etc...
 
 
     // lancer la requête
