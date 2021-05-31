@@ -1,0 +1,15 @@
+Voici un site qui contient de centaines de modèles de données qui pourraient s'averer utiles pour vos projets.
+Normalement les modèles sont réalistes (c.à.d. plus complexes que les modèles qu'on fait dans de cours ou de tutos),
+mais on peut toujours prendre un sous-ensemble.
+
+Les modèles ne suivent pas la notation Merise mais une notation 
+assez proche à celle du MLD.
+Ce sont une sorte de MLD avec des cardinalités exprimées avec
+un système qui porte le nom de "Crow's Foot" (pied de corveau).
+L'équivalence entre ces cardinalités et celles du MCD 
+se trouve dans le fichier "Cardinalites.jpg"
+
+
+http://www.databaseanswers.org/data_models/index.htm
+
+(Cliquez sur l'onglet Data Models)
