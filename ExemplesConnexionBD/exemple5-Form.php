@@ -10,10 +10,19 @@
 
 <body>
     <h4>Formulaire pour effacer tous les appartements qui se trouvent dans un état choisi</h4>
-    <form action="" method="POST">
+    <form action="./exemple5-Delete.php" method="POST">
         <!-- créer un input pour l'état -->
-
+        <div>État : 
+        <select name="formEtat">
+            <option value="bon">Appart en bon état</option>
+            <option value="superb">Superbe Appartement</option>
+            <option value="ok">Appartement corret</option>
+        </select>
+        </div>
+        <br>
+        <input type="submit" value="Supprimer">
     </form>
+
 </body>
 
 </html>

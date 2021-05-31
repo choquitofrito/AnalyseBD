@@ -15,27 +15,25 @@
     // importation des paramètres de la BD
     include "./config/db.php";
 
+    // var_dump($_POST);
+    // die();
 
 
     // vérification au cas où il a un problème (try-catch)
-    $bdd = new PDO(DBDRIVER . ':host=' . DBHOST . ';port=' . DBPORT .
-        ';dbname=' . DBNAME . ';charset='
-        . DBCHARSET, DBUSER, DBPASS);
+    $bdd = new PDO(DBDRIVER . ':host=' . DBHOST . ';port=' . DBPORT . ';dbname=' . DBNAME . ';charset=' . DBCHARSET, DBUSER, DBPASS);
 
     // créer une requête de delete
-
-
-    $sql = "DELETE FROM appartement ..."; // N'OUBLIEZ PAS LE WHERE
+    $sql = "DELETE FROM appartement WHERE etat = :deleteEtat"; // N'OUBLIEZ PAS LE WHERE
 
     // préparer la requête, renvoie objet PDOStatement
     // capturer du POST 
     // - l'etat
+    $varEtat = $_POST['formEtat'];
 
 
     $stmt = $bdd->prepare($sql);
     // lier les paramètres 
-    $stmt->bindValue (":etat", $etat);
-    // etc...
+    $stmt->bindValue (":deleteEtat", $varEtat);
 
 
     // lancer la requête
