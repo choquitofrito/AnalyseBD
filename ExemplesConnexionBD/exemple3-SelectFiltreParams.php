@@ -28,9 +28,11 @@
     $sql = "SELECT * FROM appartement WHERE etat= :paramEtat";
     
     // préparer la requête, renvoie objet PDOStatement
+    $etat = $_POST['etat'];
+
     $stmt = $bdd->prepare($sql);
     // lier le paramètre 
-    $stmt->bindValue (":paramEtat", $_POST['etat']);
+    $stmt->bindValue (":paramEtat", $etat);
 
 
     // lancer la requête
